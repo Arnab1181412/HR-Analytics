@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="theme-color" content="#0a192f">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Insurance Cross Sell Prediction</title>
+    <link rel="stylesheet" href="../static/css/index.css">
+</head>
+
+<body>
+    <!-- Start Intro -->
+    <div id="intro-div">
+        <svg id="logo" width="316" height="69" viewBox="0 0 316 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M44.625 54.9375H19.9688L15.2812 69H0.328125L25.7344 0.75H38.7656L64.3125 69H49.3594L44.625 54.9375ZM23.7656 43.5469H40.8281L32.25 18L23.7656 43.5469Z"
+                stroke="#64FFDA" stroke-width="1" />
+            <path
+                d="M95.9531 44.0156H84.75V69H70.6875V0.75H96.0469C104.109 0.75 110.328 2.54688 114.703 6.14062C119.078 9.73438 121.266 14.8125 121.266 21.375C121.266 26.0312 120.25 29.9219 118.219 33.0469C116.219 36.1406 113.172 38.6094 109.078 40.4531L123.844 68.3438V69H108.75L95.9531 44.0156ZM84.75 32.625H96.0938C99.625 32.625 102.359 31.7344 104.297 29.9531C106.234 28.1406 107.203 25.6562 107.203 22.5C107.203 19.2812 106.281 16.75 104.438 14.9062C102.625 13.0625 99.8281 12.1406 96.0469 12.1406H84.75V32.625Z"
+                stroke="#64FFDA" stroke-width="1" />
+            <path d="M187.5 69H173.438L146.062 24.0938V69H132V0.75H146.062L173.484 45.75V0.75H187.5V69Z"
+                stroke="#64FFDA" stroke-width="1" />
+            <path
+                d="M239.156 54.9375H214.5L209.812 69H194.859L220.266 0.75H233.297L258.844 69H243.891L239.156 54.9375ZM218.297 43.5469H235.359L226.781 18L218.297 43.5469Z"
+                stroke="#64FFDA" stroke-width="1" />
+            <path
+                d="M265.219 69V0.75H289.125C297.406 0.75 303.688 2.34375 307.969 5.53125C312.25 8.6875 314.391 13.3281 314.391 19.4531C314.391 22.7969 313.531 25.75 311.812 28.3125C310.094 30.8438 307.703 32.7031 304.641 33.8906C308.141 34.7656 310.891 36.5312 312.891 39.1875C314.922 41.8438 315.938 45.0938 315.938 48.9375C315.938 55.5 313.844 60.4688 309.656 63.8438C305.469 67.2188 299.5 68.9375 291.75 69H265.219ZM279.281 39.2812V57.7031H291.328C294.641 57.7031 297.219 56.9219 299.062 55.3594C300.938 53.7656 301.875 51.5781 301.875 48.7969C301.875 42.5469 298.641 39.375 292.172 39.2812H279.281ZM279.281 29.3438H289.688C296.781 29.2188 300.328 26.3906 300.328 20.8594C300.328 17.7656 299.422 15.5469 297.609 14.2031C295.828 12.8281 293 12.1406 289.125 12.1406H279.281V29.3438Z"
+                stroke="#64FFDA" stroke-width="1" />
+        </svg>
+
+        <!-- <p style="font-size: 1.5rem; margin-top: 30px; margin-bottom: 10px">x</p>
+        <p style="font-weight: 600;">AIHAB</p> -->
+    </div>
+    <!-- End intro -->
+
+    <div class="outer-form-div">
+        <form action="/submit" method="post">
+            <h3 style="color: yellow">  {{ prediction_text }} </h3>
+            <h1>HR - Analytics </h1>
+            <div class="outer-div">
+                <div class="outer-div-nobutton">
+                    <div class="inner-div">
+                        <h4>Length of Service</h4>
+                        <input id="first" name="length_of_service" type="number" required="required"
+                            autocomplete="off">
+                    </div>
+                    <div class="inner-div">
+                        <h4>Average Training Score</h4>
+                        <input id="second" name="avg_training_score" type="number" required="required"
+                            autocomplete="off">
+                    </div>
+                    <div class="inner-div">
+                        <h4>Age</h4>
+                        <input id="third" name="Age" type="number" required="required" autocomplete="off">
+                    </div>
+                    
+                    
+                    <div class="inner-div">
+                        <h4>Department</h4>
+                        <label for="department"> Select you Department</label>
+                        <select name="department" required='required' id='sixth'>
+
+                            <option value="Sales & Marketing">Sales & Marketing</option>
+                            <option value="Operations">Operations</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Analytics">Analytics</option>
+                            <option value="R&D">R&D</option>
+                            <option value="Procurement">Procurement</option>
+                            <option value="Finance">Finance</option>
+                            <option value="HR">HR</option>
+                            <option value="Legal">Legal</option>
+                            
+
+                            
+
+                        </select>
+                    </div>
+                    <div class="inner-div">
+                        <h4>Education</h4>
+                        <label for="education"> Select your Degree </label>
+                        <select name="education" required='required' id='seventh'>
+
+                            <option value="Master's & above">Master's & above</option>
+                            <option value="Bachelor's">Bachelor's</option>
+                            <option value="Below Secondary">Below Secondary</option>
+
+                        </select>
+                    </div>
+                    
+                    <div class="inner-div">
+                        <h4>Gender</h4>
+                        <label for="gender">Gender</label>
+                        <select name="gender" required='required' id='ninth'>
+
+                            <option value="m">m</option>
+                            <option value="f">f</option>
+
+                        </select>
+                    </div>
+                    <div class="inner-div">
+                        <h4>Recruitment Channel</h4>
+                        <label for="recruitment_channel">Recruitment Channel</label>
+                        <select name="recruitment_channel" required='required' id='ninth'>
+
+                            <option value="sourcing">sourcing</option>
+                            <option value="other">other</option>
+                            <option value="referred">referred</option>
+
+                        </select>
+                    </div>
+                    <div class="inner-div">
+                        <h4>KPIs_met >80%</h4>
+                        <label for="KPIs_met >80%">KPIs_met >80%</label>
+                        <select name="KPIs_met >80%" required='required' id='ninth'>
+
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                            
+
+                        </select>
+                    </div>
+                    <div class="inner-div">
+                        <h4>Awards Won</h4>
+                        <label for="awards_won?">Have you won any awards?</label>
+                        <select name="awards_won?" required='required' id='ninth'>
+
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                            
+
+                        </select>
+                    </div>
+                    
+                    <div class="inner-div">
+                        <h4>Previous Year Rating</h4>
+                        <label for="previous_year_rating">Previous Year Rating</label>
+                        <select name="previous_year_rating" required='required' id='ninth'>
+
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            
+
+                        </select>
+                    </div>
+                    <div class="inner-div">
+                        <h4>Number of Trainings</h4>
+                        <label for="no_of_trainings">Number of Trainings</label>
+                        <select name="no_of_trainings" required='required' id='ninth'>
+
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="more_trainings">more_trainings</option>
+                            
+
+                        </select>
+                    </div>
+                </div>
+                <div class="outer-div-button">
+                    <button id="sub" type="submit">Predict</button>
+                </div>
+            </div>
+        </form>
+        
+
+    </div>
+    <footer>
+        <div>
+            <p>Created by</p>
+            <a href="https://github.com/Arnab1181412">Arnab Samanta</a>
+        </div>
+        <div>
+            <p>Designed by</p>
+            <a href="https://github.com/Aihab1">Aihab Umair</a>
+        </div>
+
+    </footer>
+</body>
+
+</html>
